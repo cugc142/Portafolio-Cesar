@@ -43,11 +43,11 @@ npm install
 ```bash
 npm run dev
 
-☁️ Deploy (Vercel)
+ Deploy 
 
-Conecta el repositorio a Vercel.
+Conecta el repositorio a .
 
-Framework: Vite (Vercel lo detecta).
+Framework: Vite ( lo detecta).
 
 Comando de build: npm run build
 
@@ -55,8 +55,11 @@ Directorio de salida: dist
 
 Variables de entorno (si las usas) -> Settings > Environment Variables.
 
-Una vez desplegado, del provee una URL (este proyecto ya vive en: http://localhost:5173/
+Una vez desplegado, del provee una URL (este proyecto ya vive en: 
 ).
+
+http://localhost:5173/
+
 
 
 
