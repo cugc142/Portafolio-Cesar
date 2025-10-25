@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
-import Sidebar from "./Sidebar";
-import { FaGithub, FaWhatsapp  } from 'react-icons/fa';
+import { FaGithub, FaWhatsapp } from "react-icons/fa";
 import "../index.css";
 
 const Layout = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const toggleSidebar = () => setIsSidebarOpen((v) => !v);
   const toggleMobileMenu = () => setIsMobileMenuOpen((v) => !v);
 
   // Cerrar menú móvil al redimensionar a desktop
@@ -35,11 +32,6 @@ const Layout = () => {
     return () => document.removeEventListener("keydown", handleEscape);
   }, [isMobileMenuOpen]);
 
-  // Margen lateral sincronizado con el sidebar SOLO en md+
-  const desktopMargin = isSidebarOpen ? "md:ml-64" : "md:ml-20";
-
-
-
   return (
     <div className="min-h-dvh bg-black text-white flex flex-col">
       {/* Overlay para cerrar menú móvil */}
@@ -51,15 +43,10 @@ const Layout = () => {
         />
       )}
 
-      {/* Contenedor principal: Sidebar + contenido */}
+      {/* Contenedor principal sin Sidebar */}
       <div className="flex flex-1">
-        {/* Sidebar: hidden en móvil, fixed en md+ */}
-        <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-
         {/* Contenido principal */}
-        <div
-          className={`flex-1 flex flex-col transition-all duration-300 ease-in-out ${desktopMargin}`}
-        >
+        <div className="flex-1 flex flex-col transition-all duration-300 ease-in-out">
           {/* Header SOLO móvil */}
           <header className="md:hidden sticky top-0 z-40 bg-black/90 backdrop-blur-sm supports-[backdrop-filter]:bg-black/70 border-b border-white/10">
             <div className="flex items-center justify-between px-4 py-3">
@@ -157,21 +144,21 @@ const Layout = () => {
           </p>
           <div className="flex items-center justify-center space-x-1 text-xs">
             <a
-          href="https://github.com/cugc142"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-400 hover:text-blue-300 transition-colors duration-200"
-        >
-          <FaGithub className="w-6 h-6" />
-        </a>
+              href="https://github.com/cugc142"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-blue-300 transition-colors duration-200"
+            >
+              <FaGithub className="w-6 h-6" />
+            </a>
             <span className="text-gray-600">•</span>
-          <a
-          href="https://wa.me/42286059" 
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-400 hover:text-green-500 transition-colors duration-200"
-        >
-          <FaWhatsapp className="w-6 h-6" />
+            <a
+              href="https://wa.me/42286059"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-green-500 transition-colors duration-200"
+            >
+              <FaWhatsapp className="w-6 h-6" />
             </a>
           </div>
         </div>
