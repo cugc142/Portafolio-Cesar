@@ -55,7 +55,7 @@ Directorio de salida: dist
 
 Variables de entorno (si las usas) -> Settings > Environment Variables.
 
-Una vez desplegado, Vercel provee una URL (este proyecto ya vive en: 
+Una vez desplegado, del provee una URL (este proyecto ya vive en: http://localhost:5173/
 ).
 
 
